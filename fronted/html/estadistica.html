@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Estadísticas Semanales</title>
+    <link rel="stylesheet" href="/fronted/style/global.css">
+    <link rel="stylesheet" href="/fronted/style/estadistica.css">
+</head>
+<body>
+    
+    <aside class="sidebar">
+        <div class="logo">MindWell</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="diario.html">Diario</a></li>
+            <li><a href="chats.html">Mensajes</a></li>
+            <li><a href="Perfil.html">Perfil</a></li>
+            <li><a href="Configuracion.html">Configuración</a></li>
+        </ul>
+        
+        <h2>Diario personal</h2>
+        <ul class="secondary-links">
+            <li><a href="test.html">⚡ Test Diario</a></li>
+            <li><a class="active" href="estadistica.html">📊 Estadísticas</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+
+        <section class="estadisticas">
+            <h2>Estadísticas de Ánimo Semanal</h2>
+
+            <div class="grafico">
+                <h3>Gráfico de estado de ánimo (últimos 7 días)</h3>
+                <!-- Placeholder temporal -->
+                <img src="../assets/imagenes/grafico.png" alt="Gráfico de estado de ánimo semanal">
+            </div>
+
+            <div class="resumen">
+                <h3>Resumen Rápido</h3>
+                <p><strong>Estado de ánimo promedio:</strong> <span id="promedio">--</span></p>
+                <p><strong>Emoción más frecuente:</strong> <span id="emocion">--</span></p>
+                <p><strong>Día con más energía:</strong> <span id="mejor-dia">--</span></p>
+            </div>
+        </section>
+        
+        <section class="estadisticas">
+            <h2>Análisis de Razones (última semana)</h2>
+            <div class="resumen">
+                <p><strong>Estrés más común:</strong> <span id="estres">--</span></p>
+                <p><strong>Felicidad más común:</strong> <span id="felicidad">--</span></p>
+                <p id="mensaje-analisis"></p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

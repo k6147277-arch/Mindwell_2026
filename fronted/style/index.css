@@ -1,0 +1,240 @@
+/* =========================
+   LAYOUT PRINCIPAL
+========================= */
+.three-column-layout {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 1300px;
+  margin-top: 20px;
+}
+
+/* =========================
+   COLUMNAS
+========================= */
+.col-calendar,
+.col-status,
+.col-psychologists {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  height: fit-content;
+}
+
+.col-calendar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.col-status {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.col-psychologists {
+  flex-grow: 1;
+  min-width: 450px;
+}
+
+/* =========================
+   TITULOS (IMPORTANTE)
+========================= */
+.three-column-layout h2 {
+  color: var(--color-text-dark);
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   CALENDARIO NAV
+========================= */
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+  border: 1px solid var(--color-border-light);
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.calendar-nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+/* =========================
+   CALENDARIO GRID
+========================= */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+}
+
+.calendar-grid div {
+  padding: 8px 5px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.calendar-grid .day-name {
+  font-weight: bold;
+  cursor: default;
+}
+
+.calendar-grid .day-number:hover {
+  background-color: #eee;
+}
+
+/* día seleccionado */
+.calendar-grid .selected-day {
+  border: 2px solid var(--color-light-blue);
+  box-shadow: 0 0 5px rgba(52,152,219,0.5);
+}
+
+/* colores */
+.red { background-color: var(--color-canceled); color: white; }
+.green { background-color: var(--color-completed); color: white; }
+.yellow { background-color: var(--color-pending); }
+
+/* =========================
+   CITAS
+========================= */
+.appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.appointment-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border-light);
+  border-radius: 6px;
+  padding: 10px;
+  background: white;
+}
+
+.status-completed { border-left: 5px solid var(--color-completed); }
+.status-pending { border-left: 5px solid var(--color-pending); }
+.status-canceled { border-left: 5px solid var(--color-canceled); }
+
+.appointment-info {
+  padding-left: 10px;
+}
+
+.time {
+  font-weight: bold;
+}
+
+.doctor {
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+.search-psychologist {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-psychologist input {
+  width: 100%;
+  padding: 10px 15px;
+  padding-left: 35px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border-light);
+}
+
+.search-psychologist::before {
+  content: "🔍";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* =========================
+   TARJETAS PSICÓLOGO
+========================= */
+.psychologist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.psychologist-card {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  gap: 15px;
+  transition: 0.2s;
+  background: white;
+}
+
+.psychologist-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.psychologist-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid var(--color-light-blue);
+}
+
+.psychologist-details {
+  flex: 1;
+}
+
+.psychologist-details h4 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+/* botón */
+.chat-btn {
+  background-color: #2ecc71;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+.chat-btn:hover {
+  background-color: #27ae60;
+}
+
+.day {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.day:hover {
+  background: #eee;
+}
+
+.has-appointment {
+  background: var(--color-light-blue);
+  color: white;
+  font-weight: bold;
+}
+
+/* estados */
+.estado-pendiente { color: var(--color-pending); }
+.estado-completada { color: var(--color-completed); }
+.estado-cancelada { color: var(--color-canceled); }

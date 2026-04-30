@@ -1,0 +1,157 @@
+/* SOLO ESTILOS PROPIOS DE CONFIGURACIÓN */
+
+/* CONTENIDO */
+.main {
+  margin-left: 220px;
+  padding: 30px;
+}
+
+/* PANEL PRINCIPAL */
+.settings {
+  background-color: white;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 1000px;
+  overflow: hidden;
+}
+
+/* WRAPPER */
+.config-wrapper {
+  display: flex;
+  min-height: 550px;
+}
+
+/* SIDEBAR INTERNO */
+.config-sidebar {
+  width: 260px;
+  background-color: #f7f7f7;
+  border-right: 1px solid #eee;
+  padding: 20px 0;
+}
+
+.config-sidebar h3 {
+  padding: 0 20px 10px;
+  font-size: 1.1em;
+  color: var(--color-text-dark);
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
+
+/* OPCIONES */
+.config-option {
+  display: block;
+  padding: 12px 20px;
+  color: #555;
+  font-size: 0.95em;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+}
+
+.config-option:hover {
+  background-color: #eaeaea;
+  color: var(--color-text-dark);
+}
+
+.config-option.active {
+  background-color: white;
+  color: var(--color-light-blue);
+  font-weight: 600;
+  border-left: 3px solid var(--color-light-blue);
+}
+
+/* CONTENIDO DERECHO */
+.config-content {
+  flex: 1;
+  padding: 30px;
+}
+
+/* VISTAS */
+.config-view {
+  display: none;
+}
+
+.config-view.active {
+  display: block;
+}
+
+/* TÍTULOS */
+.config-view h3 {
+  color: var(--color-light-blue);
+  font-size: 1.4em;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed var(--color-border-light);
+  padding-bottom: 5px;
+}
+
+/* FORMULARIOS */
+.config-view label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+/* INPUTS MEJORADOS */
+.config-view input,
+.config-view select {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95em;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.config-view input:focus,
+.config-view select:focus {
+  border-color: var(--color-light-blue);
+  box-shadow: 0 0 4px rgba(52,152,219,0.3);
+  outline: none;
+}
+
+/* CHECKBOXES */
+.config-view input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+/* BOTONES */
+.config-view button {
+  margin-top: 20px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+/* BOTÓN PRINCIPAL */
+.config-view button:first-of-type {
+  background-color: var(--color-light-blue);
+  color: white;
+}
+
+.config-view button:first-of-type:hover {
+  background-color: #2980b9;
+}
+
+/* BOTÓN SECUNDARIO */
+.config-view button:last-of-type {
+  background-color: #ddd;
+  color: #333;
+}
+
+.config-view button:last-of-type:hover {
+  background-color: #bbb;
+}
+
+/* BOTÓN PELIGRO */
+.config-view button[style*="red"] {
+  background-color: #e74c3c !important;
+}
+
+.config-view button[style*="red"]:hover {
+  background-color: #c0392b !important;
+}

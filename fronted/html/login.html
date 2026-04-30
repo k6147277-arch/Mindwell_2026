@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Iniciar Sesión</title>
+    <link rel="stylesheet" href="/fronted/style/login.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Mind<span class="dark">Well</span></div>
+
+        <ul class="nav-links">
+            <li>
+                <button class="action-btn signup-btn" id="btn-registrarse">
+                    Registrarse
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="container">
+
+        <section class="login-box">
+            <h2>Iniciar sesión</h2>
+            <p>¡Bienvenido!</p>
+
+            <form id="formulario-login">
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+
+                <div class="links">
+                    <a href="#">¿Olvidó su contraseña?</a>
+                </div>
+
+                <div id="mensaje-login"></div>
+
+                <button type="submit">
+                    Iniciar sesión
+                </button>
+            </form>
+
+            <!-- Esto lo puedes dejar visual pero no funcional aún -->
+            <p class="social-text">
+                O iniciar con
+            </p>
+
+            <div class="social-login">
+                <button class="google-btn" disabled>
+                    Google (próximamente)
+                </button>
+            </div>
+
+        </section>
+
+        <section class="image-box">
+            <div class="placeholder-image">
+                <img src="imagenes/estudiar psicologia.jpg" alt="Imagen de psicología">
+            </div>
+        </section>
+
+    </main>
+
+    <script src="javascript/login.js"></script>
+
+</body>
+</html>

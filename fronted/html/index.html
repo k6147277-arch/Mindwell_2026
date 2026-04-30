@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Agenda y Psicólogos</title>
+
+    <link rel="stylesheet" href="/fronted/style/global.css">
+    <link rel="stylesheet" href="/fronted/style/index.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <div class="logo">MindWell</div>
+        <ul class="nav-links">
+            <li><a class="active" href="index.html">Inicio</a></li>
+            <li><a href="Diario.html">Diario</a></li>
+            <li><a href="chats.html">Mensajes</a></li>
+            <li><a href="Perfil.html">Perfil</a></li>
+            <li><a href="Configuracion.html">Configuración</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="main-content">
+
+        <div class="three-column-layout">
+
+            <!-- CALENDARIO -->
+            <section class="col-calendar">
+                <h2>Mi Agenda</h2>
+
+                <div class="calendar-nav">
+                    <button id="prev-month-btn">◀</button>
+                    <span id="current-month-year"></span>
+                    <button id="next-month-btn">▶</button>
+                </div>
+
+                <!-- IMPORTANTE: ESTE ID ES EL QUE USA EL JS -->
+                <div class="calendar-grid" id="calendar-days-grid"></div>
+            </section>
+
+            <!-- ESTADO DE CITA -->
+            <section class="col-status">
+                <h2>Estado de la cita</h2>
+
+                <!-- ESTE CONTENEDOR LO LLENA EL JS -->
+                <div class="appointment-list" id="appointment-list-container">
+                    <p class="empty-message">
+                        Selecciona un día en el calendario.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PSICÓLOGOS -->
+            <section class="col-psychologists">
+                <h2>Buscar Especialista</h2>
+
+                <div class="search-psychologist">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Buscar Psicólogo..."
+                    >
+                </div>
+
+                <!-- ESTE CONTENEDOR TAMBIÉN ES DINÁMICO -->
+                <div class="psychologist-list" id="psychologist-list">
+                    <p class="empty-message">Cargando psicólogos...</p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- PANEL INFORMATIVO -->
+        <section class="info-panel">
+            <h3>¡Bienvenido a MindWell! Tu Primer Paso hacia el Bienestar!</h3>
+
+            <p class="highlight">
+                🧠 Bienvenido a MindWell. Este es tu espacio seguro para el crecimiento emocional.
+                Aquí podrás gestionar tus citas, registrar tu estado diario y conectar con profesionales.
+                Empieza seleccionando un día en tu agenda o explorando especialistas.
+            </p>
+        </section>
+
+    </main>
+
+    
+    <script src="/fronted/js/inicio_calendario.js"></script>
+
+</body>
+</html>

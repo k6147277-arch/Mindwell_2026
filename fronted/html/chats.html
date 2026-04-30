@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Chats</title>
+
+    <link rel="stylesheet" href="/fronted/style/global.css">
+    <link rel="stylesheet" href="/fronted/style/chats.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <div class="logo">MindWell</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Diario.html">Diario</a></li>
+            <li><a class="active" href="chats.html">Mensajes</a></li>
+            <li><a href="Perfil.html">Perfil</a></li>
+            <li><a href="Configuracion.html">Configuración</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <main class="main-content chats-container">
+
+        <!-- LISTA DE CHATS -->
+        <aside class="chat-list">
+            <h2>Chats</h2>
+
+            <div id="chat-users">
+                <!-- se llena con JS -->
+            </div>
+        </aside>
+
+        <!-- CONVERSACIÓN -->
+        <section class="chat-window">
+
+            <div class="chat-header">
+                <h3 id="chat-name">Selecciona un chat</h3>
+                <button id="delete-chat" class="btn-danger">Eliminar</button>
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+                <p class="empty-message">No hay mensajes aún.</p>
+            </div>
+
+            <div class="chat-input">
+                <input 
+                    type="text" 
+                    id="message-input" 
+                    placeholder="Escribe un mensaje..."
+                >
+                <button id="send-message" class="btn-primary">Enviar</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/fronted/javascript/chats.js"></script>
+
+</body>
+</html>

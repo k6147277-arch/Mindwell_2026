@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Mi Diario Personal</title>
+    <link rel="stylesheet" href="/fronted/style/global.css">
+    <link rel="stylesheet" href="/fronted/style/diario.css">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo">MindWell</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li class="parent-active"><a href="diario.html">Diario</a></li>
+            <li><a href="chats.html">Mensajes</a></li>
+            <li><a href="Perfil.html">Perfil</a></li>
+            <li><a href="Configuracion.html">Configuración</a></li>
+
+            <li class="sub-section-link"><a href="diario.html" class="active-sub">Diario personal</a></li>
+            <li class="sub-section-link"><a href="test.html">⚡ Test Diario</a></li>
+            <li class="sub-section-link"><a href="estadistica.html">📊 Estadísticas</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+
+        <div class="header">
+            <h2>Mi Diario: <span id="current-month-year-title"></span></h2>
+            <button id="new-entry-btn" class="btn-primary">
+                + Nueva Entrada
+            </button>
+        </div>
+
+        <section class="diary-calendar-section">
+            <div class="calendar-nav">
+                <button id="prev-month-btn">&#9664;</button>
+                <span id="current-month-year"></span>
+                <button id="next-month-btn">&#9654;</button>
+            </div>
+
+            <div class="calendar-grid" id="calendar-days-grid"></div>
+        </section>
+
+        <section class="entry-view-panel" id="entry-view-panel">
+            <h3>Entrada del día: <span id="entry-display-date">Selecciona una fecha</span></h3>
+            <p id="entry-display-text" class="entry-text">
+                Selecciona un día en el calendario o crea una nueva entrada.
+            </p>
+        </section>
+
+        <!-- Modal -->
+        <div id="entry-modal" class="modal">
+            <div class="modal-content">
+                <h3>Nueva Entrada: <span id="modal-date"></span></h3>
+
+                <textarea 
+                    id="diary-entry-text" 
+                    placeholder="¿Cómo estuvo tu día?"
+                ></textarea>
+
+                <div id="emotion-selection"></div>
+
+                <div class="modal-actions">
+                    <button id="cancel-entry-btn" class="btn-secondary">
+                        Cancelar
+                    </button>
+                    <button id="save-entry-btn" class="btn-primary" disabled>
+                        Guardar Entrada
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="/fronted/js/diario.js"></script>
+
+</body>
+</html>

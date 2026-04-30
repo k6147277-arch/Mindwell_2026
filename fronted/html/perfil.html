@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Perfil</title>
+    <link rel="stylesheet" href="/fronted/style/global.css">
+    <link rel="stylesheet" href="/fronted/style/perfil.css">
+</head>
+<body>
+    
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <nav class="navbar">
+            <div class="logo">MindWell</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Diario.html">Diario</a></li>
+                <li><a href="chats.html">Mensajes</a></li>
+                <li><a class="active" href="Perfil.html">Perfil</a></li>
+                <li><a href="Configuracion.html">Configuración</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="main">
+
+        <!-- HEADER PERFIL -->
+        <section class="profile-header card">
+            <div class="profile-info">
+                <div class="avatar">U</div>
+                <div>
+                    <h2>Username</h2>
+                    <p class="email">abc123@gmail.com</p>
+                </div>
+            </div>
+
+            <button class="edit-btn">Editar Perfil</button>
+        </section>
+
+        <!-- GRID PRINCIPAL -->
+        <div class="profile-grid">
+
+            <!-- ESTADÍSTICAS -->
+            <section class="card stats">
+                <h3>Progreso Personal</h3>
+
+                <div class="stat-item">
+                    <span>Estado emocional</span>
+                    <strong class="positive">+15.6%</strong>
+                </div>
+
+                <div class="stat-item">
+                    <span>Bienestar general</span>
+                    <strong class="positive">+14.6%</strong>
+                </div>
+            </section>
+
+            <!-- GRÁFICO -->
+            <section class="card chart-section">
+                <header>
+                    <h3>Emociones (Últimos 14 días)</h3>
+                    <button class="export-button">Exportar</button>
+                </header>
+
+                <div class="chart-placeholder">
+                    <p>Gráfico aquí</p>
+                </div>
+            </section>
+
+            <!-- FRECUENCIA -->
+            <section class="card frequency">
+                <h3>Frecuencia emocional</h3>
+
+                <div class="circle">
+                    <span>75%</span>
+                </div>
+
+                <ul>
+                    <li>Estrés</li>
+                    <li>Ansiedad</li>
+                    <li>Depresión</li>
+                    <li>Felicidad</li>
+                    <li>Concentración</li>
+                </ul>
+            </section>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

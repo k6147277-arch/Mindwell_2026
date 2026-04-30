@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Registro rápido</title>
+    <link rel="stylesheet" href="/fronted/style/global.css">
+    <link rel="stylesheet" href="/fronted/style/Test.css">
+</head>
+<body>
+    
+    <aside class="sidebar">
+        <div class="logo">MindWell</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Diario.html">Diario</a></li>
+            <li><a href="chats.html">Mensajes</a></li>
+            <li><a href="Perfil.html">Perfil</a></li>
+            <li><a href="Configuracion.html">Configuración</a></li>
+        </ul>
+        
+        <h2>Diario personal</h2>
+        <ul class="secondary-links">
+            <li><a href="test.html" class="active">⚡ Test Diario</a></li>
+            <li><a href="Estadistica.html">📊 Estadísticas</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <section class="quick-entry">
+            <h2>Test Diario ☁️</h2>
+
+            <form id="form-test-diario">
+
+                <div class="mood-selection">
+                    <h3>¿Cómo te sientes ahora?</h3>
+
+                    <label><input type="radio" name="mood" value="feliz" required> 😊 Feliz</label>
+                    <label><input type="radio" name="mood" value="neutral"> 😐 Neutral</label>
+                    <label><input type="radio" name="mood" value="triste"> 😢 Triste</label>
+                    <label><input type="radio" name="mood" value="enojo"> 😡 Enojo</label>
+                </div>
+
+                <div class="reasons-selection">
+                    <h3>¿Qué pudo influir en tu estado?</h3>
+
+                    <label><input type="checkbox" name="reason" value="trabajo"> Trabajo</label>
+                    <label><input type="checkbox" name="reason" value="casa"> Casa</label>
+                    <label><input type="checkbox" name="reason" value="escuela"> Escuela</label>
+                    <label><input type="checkbox" name="reason" value="viajes"> Viajes</label>
+                    <label><input type="checkbox" name="reason" value="clima"> Clima</label>
+                    <label><input type="checkbox" name="reason" value="amigos"> Amigos</label>
+                    <label><input type="checkbox" name="reason" value="familia"> Familia</label>
+                    <label><input type="checkbox" name="reason" value="dinero"> Dinero</label>
+                </div>
+
+                <div id="mensaje"></div>
+
+                <button type="submit">
+                    Guardar entrada
+                </button>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>

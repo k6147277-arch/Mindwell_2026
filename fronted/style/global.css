@@ -1,0 +1,185 @@
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   VARIABLES GLOBALES
+========================= */
+:root {
+  --color-dark-blue: #2c3e50;
+  --color-light-blue: #3498db;
+  --color-text-light: #ecf0f1;
+  --color-text-dark: #34495e;
+  --color-border-light: #bdc3c7;
+  --color-hover: #34495e;
+  --color-background: #f4f7f6;
+
+  --color-completed: #2ecc71;
+  --color-pending: #f1c40f;
+  --color-canceled: #e74c3c;
+
+  --sidebar-width: 220px;
+}
+
+/* =========================
+   BODY GLOBAL
+========================= */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 🔥 Volvemos a tu original */
+  background-color: var(--color-background);
+  color: #333;
+}
+
+/* =========================
+   LINKS (FIX MORADO)
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  color: inherit;
+}
+
+/* =========================
+   SIDEBAR (BASE GLOBAL)
+========================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-width);
+  background-color: var(--color-dark-blue);
+  color: var(--color-text-light);
+  padding: 20px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+/* LOGO */
+.sidebar .logo {
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* NAV */
+.sidebar .nav-links {
+  list-style: none;
+}
+
+/* LINKS */
+.sidebar .nav-links a {
+  display: block;
+  padding: 15px 20px;
+  color: var(--color-text-light);
+  transition: background-color 0.3s;
+  font-size: 1.1em;
+}
+
+/* HOVER */
+.sidebar .nav-links a:hover {
+  background-color: var(--color-hover);
+}
+
+/* ACTIVO */
+.sidebar .nav-links a.active {
+  background-color: var(--color-light-blue);
+  font-weight: 600;
+  border-left: 5px solid white;
+  padding-left: 15px;
+}
+
+/* PADRE ACTIVO */
+.sidebar .nav-links li.parent-active > a {
+  background-color: var(--color-light-blue);
+  font-weight: 600;
+  border-left: 5px solid white;
+  padding-left: 15px;
+}
+
+/* =========================
+   SUBMENÚ (Diario)
+========================= */
+.sidebar h2 {
+  font-size: 1.2em;
+  color: var(--color-border-light);
+  padding: 10px 20px;
+  background-color: #3e5063;
+  margin-top: 10px;
+}
+
+.sidebar .secondary-links {
+  list-style: none;
+}
+
+.sidebar .secondary-links a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--color-text-light);
+  transition: background-color 0.3s;
+}
+
+.sidebar .secondary-links a:hover {
+  background-color: var(--color-hover);
+}
+
+.sidebar .secondary-links a.active {
+  background-color: #5d6d7e;
+  border-left: 5px solid var(--color-light-blue);
+  padding-left: 15px;
+  font-weight: 600;
+}
+
+/* =========================
+   CONTENIDO BASE
+========================= */
+.main,
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 30px;
+}
+
+/* =========================
+   TIPOGRAFÍA BASE
+========================= */
+h1, h2, h3 {
+  color: var(--color-text-dark);
+}
+
+/* =========================
+   BOTONES BASE
+========================= */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+/* =========================
+   INPUTS BASE
+========================= */
+input, textarea {
+  font-family: inherit;
+}
+
+/* =========================
+   TARJETAS (REUTILIZABLE)
+   ⚠️ NO rompe layouts
+========================= */
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
