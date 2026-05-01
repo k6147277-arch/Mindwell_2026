@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindWell - Iniciar Sesión</title>
-    <link rel="stylesheet" href="/fronted/style/login.css">
+    <!-- Ruta corregida para subir un nivel y entrar a style -->
+    <link rel="stylesheet" href="../style/login.css">
 </head>
 <body>
 
@@ -13,7 +14,8 @@
 
         <ul class="nav-links">
             <li>
-                <button class="action-btn signup-btn" id="btn-registrarse">
+                <!-- Agregamos onclick para redireccionar a la vista de registro -->
+                <button class="action-btn signup-btn" id="btn-registrarse" onclick="window.location.href='register.html'">
                     Registrarse
                 </button>
             </li>
@@ -21,7 +23,6 @@
     </nav>
 
     <main class="container">
-
         <section class="login-box">
             <h2>Iniciar sesión</h2>
             <p>¡Bienvenido!</p>
@@ -36,33 +37,27 @@
 
                 <div id="mensaje-login"></div>
 
-                <button type="submit">
-                    Iniciar sesión
-                </button>
+                <button type="submit">Iniciar sesión</button>
             </form>
 
-            <!-- Esto lo puedes dejar visual pero no funcional aún -->
-            <p class="social-text">
-                O iniciar con
-            </p>
+            <p class="social-text">O iniciar con</p>
 
             <div class="social-login">
                 <button class="google-btn" disabled>
                     Google (próximamente)
                 </button>
             </div>
-
         </section>
 
         <section class="image-box">
             <div class="placeholder-image">
-                <img src="imagenes/estudiar psicologia.jpg" alt="Imagen de psicología">
+                <!-- Ruta corregida para subir un nivel y entrar a img -->
+                <img src="../img/estudiar psicologia.jpg" alt="Imagen de psicología">
             </div>
         </section>
-
     </main>
 
-    <script src="javascript/login.js"></script>
-
+    <!-- Ruta corregida para subir un nivel y entrar a js -->
+    <script src="../js/login.js"></script>
 </body>
 </html>

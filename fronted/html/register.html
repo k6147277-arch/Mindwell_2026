@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindWell - Registrarse</title>
+    <link rel="stylesheet" href="../style/login.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Mind<span class="dark">Well</span></div>
+        <ul class="nav-links">
+            <li><button class="action-btn signup-btn" onclick="window.location.href='login.html'">Iniciar Sesión</button></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="login-box">
+            <h2>Crear cuenta</h2>
+            <p>Empieza tu camino con nosotros</p>
+
+            <form id="formulario-registro">
+                <input type="text" id="reg-nombre" placeholder="Nombre completo" required>
+                <input type="email" id="reg-email" placeholder="Correo electrónico" required>
+                <input type="password" id="reg-password" placeholder="Contraseña" required>
+
+                <div id="mensaje-registro"></div>
+                <button type="submit">Registrarse</button>
+            </form>
+        </section>
+
+        <section class="image-box">
+            <div class="placeholder-image">
+                <img src="../img/estudiar psicologia.jpg" alt="Imagen de psicología">
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/register.js"></script>
+</body>
+</html>
