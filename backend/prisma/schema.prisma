@@ -1,0 +1,112 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+   url      = env("DATABASE_URL")
+}
+
+model citas {
+  id           Int           @id @default(autoincrement())
+  usuario_id   Int?
+  psicologo_id Int?
+  fecha_hora   DateTime?     @db.DateTime(0)
+  descripcion  String?       @db.Text
+  estado       citas_estado? @default(pendiente)
+  usuarios     usuarios?     @relation(fields: [usuario_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "citas_ibfk_1")
+  psicologos   psicologos?   @relation(fields: [psicologo_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "citas_ibfk_2")
+
+  @@index([psicologo_id], map: "psicologo_id")
+  @@index([usuario_id], map: "usuario_id")
+}
+
+model diario {
+  id               Int                @id @default(autoincrement())
+  usuario_id       Int
+  fecha            DateTime?          @db.Date
+  contenido        String?            @db.Text
+  creado_en        DateTime?          @default(now()) @db.Timestamp(0)
+  usuarios         usuarios           @relation(fields: [usuario_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "diario_ibfk_1")
+  diario_emociones diario_emociones[]
+
+  @@index([usuario_id], map: "usuario_id")
+}
+
+model diario_emociones {
+  id         Int       @id @default(autoincrement())
+  diario_id  Int
+  emocion_id Int
+  diario     diario    @relation(fields: [diario_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "diario_emociones_ibfk_1")
+  emociones  emociones @relation(fields: [emocion_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "diario_emociones_ibfk_2")
+
+  @@index([diario_id], map: "diario_id")
+  @@index([emocion_id], map: "emocion_id")
+}
+
+model emociones {
+  id               Int                @id @default(autoincrement())
+  nombre           String             @db.VarChar(50)
+  icono            String?            @db.VarChar(100)
+  diario_emociones diario_emociones[]
+}
+
+model mensajes {
+  id           Int                @id @default(autoincrement())
+  usuario_id   Int
+  psicologo_id Int
+  remitente    mensajes_remitente
+  mensaje      String             @db.Text
+  fecha        DateTime?          @default(now()) @db.Timestamp(0)
+  usuarios     usuarios           @relation(fields: [usuario_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "mensajes_ibfk_1")
+  psicologos   psicologos         @relation(fields: [psicologo_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "mensajes_ibfk_2")
+
+  @@index([psicologo_id], map: "psicologo_id")
+  @@index([usuario_id], map: "usuario_id")
+}
+
+model psicologos {
+  id           Int        @id @default(autoincrement())
+  nombre       String     @db.VarChar(100)
+  especialidad String?    @db.VarChar(100)
+  descripcion  String?    @db.Text
+  rating       Decimal?   @db.Decimal(2, 1)
+  foto_url     String?    @db.VarChar(255)
+  citas        citas[]
+  mensajes     mensajes[]
+}
+
+model test_respuestas {
+  id         Int      @id @default(autoincrement())
+  usuario_id Int
+  pregunta   String   @db.Text
+  respuesta  String   @db.Text
+  fecha      DateTime @db.Date
+  usuarios   usuarios @relation(fields: [usuario_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_test_usuario")
+
+  @@index([usuario_id], map: "fk_test_usuario")
+}
+
+model usuarios {
+  id              Int               @id @default(autoincrement())
+  nombre          String            @db.VarChar(100)
+  email           String            @unique(map: "email") @db.VarChar(100)
+  password        String            @db.VarChar(255)
+  fecha_registro  DateTime?         @default(now()) @db.Timestamp(0)
+  citas           citas[]
+  diario          diario[]
+  mensajes        mensajes[]
+  test_respuestas test_respuestas[]
+}
+
+enum mensajes_remitente {
+  usuario
+  psicologo
+}
+
+enum citas_estado {
+  pendiente
+  confirmada
+  cancelada
+  completada
+}

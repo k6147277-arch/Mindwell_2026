@@ -1,49 +1,112 @@
-const db = require("../db");
+const { PrismaClient } = require('@prisma/client');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-// --- LOGIN ---
-exports.login = (req, res) => {
-    const { email, password } = req.body;
+const prisma = new PrismaClient();
 
-    const query = "SELECT * FROM usuarios WHERE email = ? AND password = ?";
 
-    db.query(query, [email, password], (err, results) => {
-        if (err) {
-            return res.status(500).json({ message: "Error en el servidor" });
+// LOGIN
+exports.login = async (req, res) => {
+
+    try {
+
+        const { email, password } = req.body;
+
+        const usuario = await prisma.usuarios.findUnique({
+            where: {
+                email
+            }
+        });
+
+        if (!usuario) {
+            return res.status(404).json({
+                mensaje: "Usuario no encontrado"
+            });
         }
 
-        if (results.length > 0) {
-            res.json({
-                message: "Login exitoso",
-                user: results[0]
-            });
-        } else {
-            res.status(401).json({
-                message: "Credenciales incorrectas"
+        const passwordCorrecta = await bcrypt.compare(
+            password,
+            usuario.password
+        );
+
+        if (!passwordCorrecta) {
+            return res.status(401).json({
+                mensaje: "Contraseña incorrecta"
             });
         }
-    });
-};
 
-// --- REGISTER ---
-exports.register = (req, res) => {
-    const { nombre, email, password } = req.body;
+        const token = jwt.sign(
+            {
+                id: usuario.id,
+                email: usuario.email
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: "8h"
+            }
+        );
 
-    // Validación simple
-    if (!nombre || !email || !password) {
-        return res.status(400).json({ message: "Todos los campos son obligatorios" });
+        res.json({
+            mensaje: "Login exitoso",
+            token,
+            usuario
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            error: "Error interno"
+        });
+
     }
 
-    const query = "INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)";
+};
 
-    db.query(query, [nombre, email, password], (err, result) => {
-        if (err) {
-            console.error("Error al insertar:", err);
-            return res.status(500).json({ message: "Error al registrar usuario" });
+
+// REGISTER
+exports.register = async (req, res) => {
+
+    try {
+
+        const { nombre, email, password } = req.body;
+
+        const usuarioExiste = await prisma.usuarios.findUnique({
+            where: {
+                email
+            }
+        });
+
+        if (usuarioExiste) {
+            return res.status(400).json({
+                mensaje: "El usuario ya existe"
+            });
         }
 
-        res.status(201).json({
-            message: "Usuario registrado con éxito",
-            userId: result.insertId
+        const passwordHash = await bcrypt.hash(password, 10);
+
+        const nuevoUsuario = await prisma.usuarios.create({
+            data: {
+                nombre,
+                email,
+                password: passwordHash
+            }
         });
-    });
+
+        res.status(201).json({
+            mensaje: "Usuario registrado",
+            usuario: nuevoUsuario
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            error: "Error interno"
+        });
+
+    }
+
 };

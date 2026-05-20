@@ -7,7 +7,6 @@ const diarioController = require("../controllers/diarioController");
 router.post("/crear", diarioController.crearEntrada);
 
 // Para ver el historial de notas
-// Servirá para que tus amigos pinten el calendario con datos reales
 router.get("/historial/:usuario_id", diarioController.obtenerHistorial);
 
 // Para el Test Diario
